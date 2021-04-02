@@ -19,6 +19,7 @@ total_votes = len(vote_data)
 
 # Determine unique candidates via; transform back to list object
 candidates = list(set(vote_data))
+candidates.sort() # Ensure list from set is in alphabetical order.
 
 
 # Count number of votes for each candidate via nested for loop.
@@ -47,17 +48,35 @@ for k in range(len(vote_counts)):
 max_votes = max(vote_counts)
 winner_index = vote_counts.index(max_votes)
 
+# Print results to screen
 print("Election Results\n")
 print("-------------------------\n")
 print("Total Votes: " + str(total_votes) + "\n")
 print("-------------------------\n")
-print("Khan: " + vote_percentages[0] + "% (" + str(vote_counts[0]) + ")\n")
-print("Correy: " + vote_percentages[2] + "% (" + str(vote_counts[2]) + ")\n")
-print("Li: " + vote_percentages[3] + "% (" + str(vote_counts[3]) + ")\n")
-print("O'Tooley: " + vote_percentages[1] + "% (" + str(vote_counts[1]) + ")\n")
+print("Khan: " + vote_percentages[1] + "% (" + str(vote_counts[1]) + ")\n")
+print("Correy: " + vote_percentages[0] + "% (" + str(vote_counts[0]) + ")\n")
+print("Li: " + vote_percentages[2] + "% (" + str(vote_counts[2]) + ")\n")
+print("O'Tooley: " + vote_percentages[3] + "% (" + str(vote_counts[3]) + ")\n")
 print("-------------------------\n")
 print("Winner: " + str(candidates[winner_index]) + "\n")
 print("-------------------------\n")
+
+# Write to results to text file
+txtout = os.path.join("analysis", "output.txt")
+
+f = open(txtout, 'w')
+print("Election Results\n", file = f)
+print("-------------------------\n", file = f)
+print("Total Votes: " + str(total_votes) + "\n", file = f)
+print("-------------------------\n", file = f)
+print("Khan: " + vote_percentages[1] + "% (" + str(vote_counts[1]) + ")\n", file = f)
+print("Correy: " + vote_percentages[0] + "% (" + str(vote_counts[0]) + ")\n", file = f)
+print("Li: " + vote_percentages[2] + "% (" + str(vote_counts[2]) + ")\n", file = f)
+print("O'Tooley: " + vote_percentages[3] + "% (" + str(vote_counts[3]) + ")\n", file = f)
+print("-------------------------\n", file = f)
+print("Winner: " + str(candidates[winner_index]) + "\n", file = f)
+print("-------------------------\n", file = f)
+f.close()
 
 
 

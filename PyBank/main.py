@@ -33,7 +33,7 @@ PL_min_change_index = PL_diff.index(PL_change_min)
 max_change_month = dates_only2[PL_max_change_index]
 min_change_month = dates_only2[PL_min_change_index]
 
-
+# Print results to screen
 print("Financial Analysis\n")
 print("----------------------------\n")
 print("Total Months: " + str(months)+ "\n")
@@ -41,6 +41,37 @@ print("Total: $" + str(PL_sum) + "\n")
 print("Average Change: $" + PL_change_average + "\n")
 print("Greatest Increase in Profits: " + str(max_change_month) + " ($" + str(PL_change_max) + ")\n")
 print("Greatest Decrease in Profits: " + str(min_change_month) + " ($" + str(PL_change_min) + ")\n")
+
+
+# Write results to text file
+txtout = os.path.join("analysis", "output.txt")
+
+f = open(txtout, 'w')
+print("Financial Analysis\n", file = f)
+print("----------------------------\n", file = f)
+print("Total Months: " + str(months)+ "\n", file = f)
+print("Total: $" + str(PL_sum) + "\n", file = f)
+print("Average Change: $" + PL_change_average + "\n", file = f)
+print("Greatest Increase in Profits: " + str(max_change_month) + " ($" + str(PL_change_max) + ")\n", file = f)
+print("Greatest Decrease in Profits: " + str(min_change_month) + " ($" + str(PL_change_min) + ")\n", file = f)
+f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
