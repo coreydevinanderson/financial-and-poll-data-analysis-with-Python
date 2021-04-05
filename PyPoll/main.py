@@ -17,13 +17,13 @@ for ballot in range(len(election_data)):
 
 total_votes = len(vote_data)
 
-# Determine unique candidates via; transform back to list object
+# Determine unique candidates via set(); transform back to list object
 candidates = list(set(vote_data))
 candidates.sort() # Ensure list from set is in alphabetical order.
 
 
 # Count number of votes for each candidate via nested for loop.
-# For each candidate (i) count the number of votes (j) cast for that candidate.
+# For each candidate (i), iterate over each vote (j) to count the votes for that candidate.
 
 vote_counts = []
 count = 0
