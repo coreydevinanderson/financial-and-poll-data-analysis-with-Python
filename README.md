@@ -1,4 +1,6 @@
-This repository contains the materials for the 'python-challenge' homework assignment (HW3) for the Georgia Tech Data Science and Analytics Bootcamp.
+Two sets of Python code for analysis of financial profit/loss data and poll data.
+
+----
 
 There are two folders:
 
